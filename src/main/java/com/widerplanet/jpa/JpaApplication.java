@@ -18,11 +18,4 @@ public class JpaApplication {
         SpringApplication.run(JpaApplication.class, args);
 
     }
-
-
-    private void run(String... args) throws Exception {
-
-
-
-    }
 }
