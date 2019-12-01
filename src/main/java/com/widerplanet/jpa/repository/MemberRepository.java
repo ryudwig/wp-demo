@@ -2,12 +2,16 @@ package com.widerplanet.jpa.repository;
 
 import com.widerplanet.jpa.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface MemberRepository extends JpaRepository<Member, Long > {
-    public List<Member> findByName(String name);
+    @Override
+    @EntityGraph(attributePaths = {"team"}, type = EntityGraph.EntityGraphType.LOAD)
+    public List<Member> findAll();
+
+    // default Lazy
+    public Member findByName(String name);
+
+    // default Lazy
     public Member findByMid(Long id);
 
     public List<Member> findAllByTeamName(String teamName);

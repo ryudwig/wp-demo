@@ -20,7 +20,7 @@ public class Team {
     @Id
     private Long id;
     private String teamName;
-    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "team")
     @JsonIgnore
     private List<Member> members = new ArrayList<Member>();
     private int memberNum;

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Data
 @Entity
@@ -19,7 +20,7 @@ public class Member {
     @Id
     private Long mid;
     private String name;
-    @ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
+    @ManyToOne(cascade=CascadeType.DETACH)
     @JoinColumn(name="ID")
     private Team team;
 
