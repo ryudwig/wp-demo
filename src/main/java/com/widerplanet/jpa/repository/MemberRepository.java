@@ -1,7 +1,10 @@
 package com.widerplanet.jpa.repository;
 
 import com.widerplanet.jpa.entity.Member;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 public interface MemberRepository extends JpaRepository<Member, Long > {
     @Override
@@ -9,10 +12,11 @@ public interface MemberRepository extends JpaRepository<Member, Long > {
     public List<Member> findAll();
 
     // default Lazy
-    public Member findByName(String name);
+    public List<Member> findByName(String name);
 
     // default Lazy
     public Member findByMid(Long id);
 
+    // NamedQuery Test (JPQL)
     public List<Member> findAllByTeamName(String teamName);
 }
