@@ -12,18 +12,20 @@ import java.util.List;
 
 @Data
 @Entity
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "members")
 public class Team {
     @GeneratedValue
     @Id
     private Long id;
+    @Column(name = "team_name")
     private String teamName;
     @OneToMany(mappedBy = "team")
     @JsonIgnore
     private List<Member> members = new ArrayList<Member>();
-    private int memberNum;
+    @Column(name = "member_num")
+    private int memberNum = 0;
     public Team(String name){
         this.teamName = name;
     }

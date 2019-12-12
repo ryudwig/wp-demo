@@ -42,7 +42,15 @@ public class MemberResource {
         return repository.findAllByTeamName(teamName);
     }
 
+    /**
+     * MemberCustomRepositoryImpl class의 findByCustomOption(String name) 호출
+     * @param name
+     * @return
+     */
+    @ApiOperation(value = "CustomRepository, 유사 이름 멤버 조회", notes = "CustomRepository를 사용한 멤버 조회")
+    @GetMapping("/member/name/{name}")
+    public List<Member> getMembersWithCustomRepository(@PathVariable("name") final String name){
+        return repository.findByCustomOption(name);
 
-
-
+    }
 }
